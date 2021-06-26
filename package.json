@@ -4,6 +4,7 @@
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-react": "^7.14.5",
     "babel-loader": "^8.2.2",
+    "standard": "^16.0.3",
     "webpack": "^5.40.0",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2",
@@ -12,10 +13,23 @@
   "dependencies": {
     "html-webpack-plugin": "^5.3.2",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.0"
+  },
+  "standard": {
+    "ignore": [
+      "/api/**"
+    ]
   },
   "scripts": {
     "build": "webpack",
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "lint": "standard",
+    "lint-fix": "standard --fix"
+  },
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/standard/eslintrc.json"
+    ]
   }
 }
