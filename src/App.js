@@ -5,7 +5,7 @@ import { ListOfPhotoCards } from './components/ListOfPhotoCards'
 import { Logo } from './components/Logo'
 export const App = () => (
   <>
-    <Logo/>
+    <Logo />
     <GlobalStyles />
     <ListOfCategories />
     <ListOfPhotoCards />

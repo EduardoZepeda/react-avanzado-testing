@@ -1,8 +1,8 @@
-import styled, {css} from 'styled-components'
-import {fadeIn} from '../../styles/animation'
+import styled, { css } from 'styled-components'
+import { fadeIn } from '../../styles/animation'
 
 export const List = styled.ul`
-    ${ fadeIn }
+    ${fadeIn}
     display: flex;
     overflow: hidden;
     width: 100%;
