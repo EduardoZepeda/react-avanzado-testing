@@ -8,7 +8,7 @@ export const ListOfCategories = () => {
   const [showFixed, setShowFixed] = useState(false)
 
   const renderList = (fixed) => (
-    <List className={fixed? 'fixed': ''}>
+    <List fixed={fixed}>
       {categories.map(category => <Item key={category.id}><Category {...category} /></Item>)}
     </List>
     )
