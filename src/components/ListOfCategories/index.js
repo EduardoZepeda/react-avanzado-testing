@@ -10,7 +10,7 @@ function useCategoriesData () {
 
   useEffect(() => {
     setLoading(true)
-    window.fetch('https://react-avanzado-testing-eduardozepeda.vercel.app/categories')
+    window.fetch('https://react-avanzado-testing-b39h5jmoy-eduardozepeda.vercel.app/categories')
       .then(res => res.json())
       .then(response => {
         setCategories(response)
