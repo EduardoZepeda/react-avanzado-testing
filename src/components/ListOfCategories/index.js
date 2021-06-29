@@ -27,7 +27,7 @@ export const ListOfCategories = () => {
 
   const renderList = (fixed) => (
     <List fixed={fixed}>
-      {loading ? <AiOutlineLoading3Quarters size='64px' /> : categories.map(category => <Item key={category.id}><Category {...category} /></Item>)}
+      {loading ? <AiOutlineLoading3Quarters faStyle='spinner' animate='spin' size='64px' /> : categories.map(category => <Item key={category.id}><Category {...category} /></Item>)}
     </List>
   )
 

@@ -3,7 +3,7 @@ import { PhotoCard } from '../components/PhotoCard'
 import { gql, useQuery } from '@apollo/client'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 
-const query = gql`
+const GET_SINGLE_PHOTO_BY_ID = gql`
   query getSinglePhoto($id: ID!) {
     photo(id: $id) {
       id
@@ -17,7 +17,7 @@ const query = gql`
 `
 
 export const PhotoCardWithQuery = ({ id }) => {
-  const { loading, error, data } = useQuery(query, {
+  const { loading, error, data } = useQuery(GET_SINGLE_PHOTO_BY_ID, {
     variables: {
       id: id
     }
@@ -26,7 +26,7 @@ export const PhotoCardWithQuery = ({ id }) => {
     return <h2>Something went wrong :(</h2>
   }
   if (loading) {
-    return <AiOutlineLoading3Quarters />
+    return <AiOutlineLoading3Quarters faStyle='spinner' animate='spin' />
   }
 
   return (
