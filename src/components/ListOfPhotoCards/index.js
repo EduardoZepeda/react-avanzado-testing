@@ -1,24 +1,10 @@
 import React from 'react'
 import { PhotoCard } from '../PhotoCard'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
-import { useQuery, gql } from "@apollo/client"
+import { getPhotos } from '../../hoc/getPhotos'
 
-const withPhotos = gql`
-  query getPhotos {
-    photos {
-      id
-      categoryId
-      src
-      likes
-      userId
-      liked
-    }
-  }
-`
-
-export const ListOfPhotoCards = () => {
-  const { loading, error, data } = useQuery(withPhotos);
-
+export const ListOfPhotoCards = ({categoryId}) => {
+  const { loading, data, error } = getPhotos(categoryId)
   if (error) {
     return <h2>Something went wrong :(</h2>;
   }
