@@ -3,13 +3,13 @@ import { PhotoCard } from '../PhotoCard'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import { getPhotos } from '../../hoc/getPhotos'
 
-export const ListOfPhotoCards = ({categoryId}) => {
+export const ListOfPhotoCards = ({ categoryId }) => {
   const { loading, data, error } = getPhotos(categoryId)
   if (error) {
-    return <h2>Something went wrong :(</h2>;
+    return <h2>Something went wrong :(</h2>
   }
   if (loading) {
-    return <AiOutlineLoading3Quarters size='32px'/>;
+    return <AiOutlineLoading3Quarters size='32px' />
   }
 
   return (
@@ -18,5 +18,5 @@ export const ListOfPhotoCards = ({categoryId}) => {
         <PhotoCard key={photo.id} {...photo} />
       ))}
     </ul>
-  );
-};
+  )
+}

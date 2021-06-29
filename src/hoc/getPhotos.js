@@ -1,7 +1,7 @@
-import { useQuery, gql } from "@apollo/client"
+import { useQuery, gql } from '@apollo/client'
 
-export function getPhotos(categoryId){
-    const withPhotos = gql`
+export function getPhotos (categoryId) {
+  const withPhotos = gql`
       query getPhotos($categoryId:ID) {
         photos(categoryId: $categoryId) {
           id
@@ -13,10 +13,6 @@ export function getPhotos(categoryId){
         }
       }
     `
-  const { loading, error, data } = useQuery(withPhotos, { variables: { categoryId } });
+  const { loading, error, data } = useQuery(withPhotos, { variables: { categoryId } })
   return { loading, error, data }
-
 }
-
-
-
