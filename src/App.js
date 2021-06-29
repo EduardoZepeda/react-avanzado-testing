@@ -4,6 +4,7 @@ import { Logo } from './components/Logo'
 import { PhotoCardWithQuery } from './container/PhotoCardWithQuery'
 import { Home } from './pages/Home'
 import { Router } from '@reach/router'
+import { Detail } from './pages/Detail'
 
 export const App = () => {
   const urlParams = new window.URLSearchParams(window.location.search)
@@ -12,10 +13,11 @@ export const App = () => {
     <>
       <Logo />
       <GlobalStyles />
-      {detailId ? <PhotoCardWithQuery id={detailId} /> : <Router>
+      <Router>
         <Home path='/' />
         <Home path='/pet/:id' />
-                                                         </Router>}
+        <Detail path='/detail/:detailId'/>
+      </Router>
 
     </>
   )
