@@ -5,6 +5,7 @@ import { PhotoCardWithQuery } from './container/PhotoCardWithQuery'
 import { Home } from './pages/Home'
 import { Router } from '@reach/router'
 import { Detail } from './pages/Detail'
+import { Navbar } from './components/Navbar'
 
 export const App = () => {
   const urlParams = new window.URLSearchParams(window.location.search)
@@ -16,9 +17,9 @@ export const App = () => {
       <Router>
         <Home path='/' />
         <Home path='/pet/:id' />
-        <Detail path='/detail/:detailId'/>
+        <Detail path='/detail/:detailId' />
       </Router>
-
+      <Navbar/>
     </>
   )
 }
