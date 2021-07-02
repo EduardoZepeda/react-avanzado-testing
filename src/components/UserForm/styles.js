@@ -18,10 +18,15 @@ export const Input = styled.input`
         color: #555;
         background-color: #FBFBFB;
         border-bottom: 3px solid #FF512F;
-          &:valid {
-            border-bottom: 3px solid #94ffa5;
-          }
+        &:valid{
+          border: 1px solid #78c164;
+          border-bottom: 3px solid #78c164;          
+        }
       };
+      &:not(:placeholder-shown):invalid {
+        border: 1px solid #FF512F;
+        border-bottom: 3px solid #FF512F;
+      }
 `
 
 export const Button = styled.button`
@@ -39,6 +44,9 @@ export const Button = styled.button`
   &:hover{
     background-position: right center;
   };
+  &[disabled]{
+    opacity: 0.3;
+  }
 `
 
 export const Title = styled.h2`
@@ -46,4 +54,8 @@ export const Title = styled.h2`
   font-size: 1.5rem;
   font-weight: 500;
   padding: 8px 0;
+`
+
+export const ErrorMsg = styled.span`
+  color: red;
 `
