@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { GlobalStyles } from './styles/GlobalStyles'
 import { Logo } from './components/Logo'
 import { PhotoCardWithQuery } from './container/PhotoCardWithQuery'
@@ -7,12 +7,13 @@ import { User } from './pages/User'
 import { Favs } from './pages/Favs'
 import { NotRegisteredUser } from './pages/NotRegisteredUser'
 
-import { Router } from '@reach/router'
+import { Router, Redirect } from '@reach/router'
 import { Detail } from './pages/Detail'
 import { Navbar } from './components/Navbar'
-import Context from './Context'
+import { Context } from './Context'
 
 export const App = () => {
+  const { isAuth } = useContext(Context)
   const urlParams = new window.URLSearchParams(window.location.search)
   const detailId = urlParams.get('detail')
   return (
@@ -23,16 +24,12 @@ export const App = () => {
         <Home path='/' />
         <Home path='/pet/:id' />
         <Detail path='/detail/:detailId' />
+        {!isAuth && <NotRegisteredUser path='/login' />}
+        {!isAuth && <Redirect noThrow from='/favs' to='/login' />}
+        {!isAuth && <Redirect noThrow from='/user' to='/login' />}
+        <Favs path='/favs' />
+        <User path='/user' />
       </Router>
-      <Context.Consumer>
-        {({ isAuth }) => isAuth ? <Router>
-          <Favs path='/favs' />
-          <User path='/user' />
-        </Router> : <Router>
-                                    <NotRegisteredUser path='/favs' />
-                                    <NotRegisteredUser path='/user' />
-                                              </Router>}
-      </Context.Consumer>
       <Navbar />
     </>
   )
