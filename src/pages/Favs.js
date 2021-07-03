@@ -1,5 +1,6 @@
 import React from 'react'
+import { Favorites } from '../container/getFavorites'
 
 export const Favs = () => {
-  return (<h1>Favs</h1>)
+  return (<Favorites />)
 }

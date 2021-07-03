@@ -6,6 +6,6 @@ const LOGIN = gql`
     }
 `
 export const useLoginMutation = (email, password) => {
-  const [loginMutation, { loading: loginLoading, error: loginError }] = useMutation(LOGIN, { variables: { input: { email, password } } })
-  return { loginMutation, loginLoading, loginError }
+  const [mutation, { loading: loginLoading, error: loginError }] = useMutation(LOGIN, { variables: { input: { email, password } } })
+  return { loginMutation: mutation, loginLoading, loginError }
 }

@@ -1,9 +1,8 @@
-import React from 'react'
 import { useMutation, gql } from '@apollo/client'
 
 const MUTATION_LIKE_PHOTO = gql`
-mutation likeAnonymousPhoto($input: LikePhoto!) {
-    likeAnonymousPhoto(input: $input) {
+mutation likePhoto($input: LikePhoto!) {
+    likePhoto(input: $input) {
       id,
       liked,
       likes
@@ -11,6 +10,6 @@ mutation likeAnonymousPhoto($input: LikePhoto!) {
   }
 `
 export const toggleLikeMutation = () => {
-  const [mutation, { loading: mutationLoading, error: mutationError }] = useMutation(MUTATION_LIKE_PHOTO)
-  return { mutation, mutationLoading, mutationError }
+  const [mutation, { loading: mutationLoading, error: mutationError, data: mutationData }] = useMutation(MUTATION_LIKE_PHOTO)
+  return { mutation, mutationLoading, mutationError, mutationData }
 }

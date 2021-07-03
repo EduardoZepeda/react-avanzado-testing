@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Context from '../Context'
 import { UserForm } from '../components/UserForm'
-import { useRegisterMutation } from '../container/RegisterMutation'
-import { useLoginMutation } from '../container/LoginMutation'
+import { useRegisterMutation } from '../hooks/RegisterMutation'
+import { useLoginMutation } from '../hooks/LoginMutation'
 
 export const NotRegisteredUser = () => {
   const { registerMutation, registerLoading, registerError } = useRegisterMutation()

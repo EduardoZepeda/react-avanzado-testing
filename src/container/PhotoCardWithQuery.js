@@ -26,7 +26,7 @@ export const PhotoCardWithQuery = ({ id }) => {
     return <h2>Something went wrong :(</h2>
   }
   if (loading) {
-    return <AiOutlineLoading3Quarters faStyle='spinner' animate='spin' />
+    return <AiOutlineLoading3Quarters animate='spin' />
   }
 
   return (
