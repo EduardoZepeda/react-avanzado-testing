@@ -36,7 +36,7 @@ export const NotRegisteredUser = () => {
                   const loginErrorMessage = loginError && 'El usuario y/o la contraseña son incorrectos'
                   return (
                     <>
-                      <UserForm onSubmit={handleRegister} disabled={registerLoading} errorMsg={registerErrorMessage} title='Registrarse' />
+                      <UserForm onSubmit={handleRegister} disabled={registerLoading} errorMsg={registerError} title='Registrarse' />
                       <UserForm onSubmit={handleLogin} disabled={loginLoading} errorMsg={loginErrorMessage} title='Iniciar Sesion' />
                     </>
                   )

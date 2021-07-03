@@ -5,6 +5,7 @@ import { PhotoCardWithQuery } from './container/PhotoCardWithQuery'
 import { Home } from './pages/Home'
 import { User } from './pages/User'
 import { Favs } from './pages/Favs'
+import { PageNotFound } from './pages/PageNotFound'
 import { NotRegisteredUser } from './pages/NotRegisteredUser'
 
 import { Router, Redirect } from '@reach/router'
@@ -21,12 +22,14 @@ export const App = () => {
       <Logo />
       <GlobalStyles />
       <Router>
+        <PageNotFound default/>
         <Home path='/' />
         <Home path='/pet/:id' />
         <Detail path='/detail/:detailId' />
         {!isAuth && <NotRegisteredUser path='/login' />}
         {!isAuth && <Redirect noThrow from='/favs' to='/login' />}
         {!isAuth && <Redirect noThrow from='/user' to='/login' />}
+        {isAuth && <Redirect noThrow from='/login' to='/' />}
         <Favs path='/favs' />
         <User path='/user' />
       </Router>
