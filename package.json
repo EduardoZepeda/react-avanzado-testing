@@ -31,7 +31,8 @@
     "build": "webpack",
     "dev": "webpack serve --history-api-fallback",
     "lint": "standard",
-    "lint-fix": "standard --fix"
+    "lint-fix": "standard --fix",
+    "serve:dev":"webpack --mode='development' && npx serve dist -s"
   },
   "eslintConfig": {
     "extends": [
