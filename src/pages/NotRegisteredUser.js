@@ -3,14 +3,19 @@ import Context from '../Context'
 import { UserForm } from '../components/UserForm'
 import { useRegisterMutation } from '../hooks/RegisterMutation'
 import { useLoginMutation } from '../hooks/LoginMutation'
+import { Layout } from '../components/Layout'
 
 export const NotRegisteredUser = () => {
   const { registerMutation, registerLoading, registerError } = useRegisterMutation()
   const { loginMutation, loginLoading, loginError } = useLoginMutation()
 
   return (
-    <Context.Consumer>
-      {
+    <Layout
+      title='Bienvenido a Petgram'
+      description='Comparte las imágenes de tus lomitos, aves y nekos'
+    >
+      <Context.Consumer>
+        {
                 ({ activateAuth }) => {
                   const handleRegister = ({ email, password }) => {
                     const input = { email, password }
@@ -42,6 +47,7 @@ export const NotRegisteredUser = () => {
                   )
                 }
             }
-    </Context.Consumer>
+      </Context.Consumer>
+    </Layout>
   )
 }

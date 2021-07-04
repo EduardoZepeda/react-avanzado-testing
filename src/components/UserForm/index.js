@@ -14,10 +14,10 @@ export const UserForm = ({ title, onSubmit, errorMsg, disabled }) => {
   return (
     <>
       <Title>{title}</Title>
-      <Form disabled={disabled} onSubmit={handleSubmit}>
-        <Input disabled={disabled} type='email' placeholder='Email' {...email} />
-        <Input disabled={disabled} type='password' placeholder='Password' {...password} />
-        <Button disabled={disabled}>Iniciar sesion</Button>
+      <Form disabled={disabled || email.value.length < 4 || password.value.length < 1} onSubmit={handleSubmit}>
+        <Input minlength='4' disabled={disabled} type='email' placeholder='Email' {...email} />
+        <Input minlength='1' disabled={disabled} type='password' placeholder='Password' {...password} />
+        <Button disabled={disabled || email.value.length < 4 || password.value.length < 1}>Iniciar sesion</Button>
       </Form>
       {errorMsg && <ErrorMsg>{errorMsg}</ErrorMsg>}
     </>

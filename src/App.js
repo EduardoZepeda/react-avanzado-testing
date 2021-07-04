@@ -22,7 +22,7 @@ export const App = () => {
       <Logo />
       <GlobalStyles />
       <Router>
-        <PageNotFound default/>
+        <PageNotFound default />
         <Home path='/' />
         <Home path='/pet/:id' />
         <Detail path='/detail/:detailId' />
