@@ -12,8 +12,8 @@ describe('Petgram', function () {
     cy.get('nav a').first().click()
     cy.url().should('eq', Cypress.config().baseUrl)
   })
-  it('La ruta favs muestra dos formularios'), function () {
+  it('La ruta favs debe mostrar dos formularios para usuarios no loggeados', function () {
     cy.visit('/favs')
     cy.get('form').should('have.length', 2)
-  }
+  })
 })
