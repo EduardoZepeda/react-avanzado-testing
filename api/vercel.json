@@ -3,12 +3,26 @@
   "name": "petgram-server-eduardo-zepeda",
   "alias": ["petgram-api"],
   "builds": [{ "src": "index.js", "use": "@vercel/node" }],
-  "routes": [{
+  "routes": [
+        {
+      "src": "(.*).js",
+      "dest": "/$1.js"
+    },
+    {
+      "src": "(.*).png",
+      "dest": "/$1.png"
+    },
+    {
+      "src": "(.*).json",
+      "dest": "/$1.json"
+    },
+    {
     "headers": {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
         "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
     },
+
     "src": "/.*", "dest": "index.js" }
   ]
 }
